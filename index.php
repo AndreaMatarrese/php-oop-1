@@ -20,25 +20,58 @@ metodi d'istanza che abbiamo visto stamattina e create un file index.php in cui:
             public $genre;
             public $year;
             public $duration;
-
-            // metodo per la durata
-            public function setDuration($duration){
-                if($duration > 0 && $duration < 400){
-                    $this->duration = $duration; 
-                } else{
-                    echo 'durata film non corretta';
-                }
-            }
-            public function getTitle($title_film1){
-                return $this->title;
-            }
             // costruttore
+            function __construct($_title,$_genre,$_year,$_duration)
+            {
+                $this->title = $_title;
+                $this->genre= $_genre;
+                $this->year = $_year;
+                $this->duration= $_duration;
 
-
+            }
+            // metodi
+        
+        public function getTitle(){
+            return $this->title;
         }
-        $film1 = new Movies();
-        $title_film1 = $film1->getTitle($title_film1);
-        echo $title_film1;
+        public function getGenre(){
+            return $this->genre;
+        }
+        public function getYear(){
+            return $this->year;
+        }
+        public function setDuration($duration){
+            if($duration > 0 && $duration < 400){
+                $this->duration = $duration; 
+            } else{
+                echo 'durata film non corretta';
+            }
+        }
+        public function getDuration(){
+            return $this->duration;
+        }
+        
+        
+        }
+        $film1 = new Movies('Io sono leggenda','thriller',2007,150);
+        echo $film1_title = $film1->getTitle();
+        echo '<br>';
+        echo $film1_genre = $film1->getGenre();
+        echo '<br>';
+        echo $film1_year = $film1->getYear();
+        echo '<br>';
+        $film1_duration = $film1->setDuration(150);
+        echo $film1_duration = $film1->getDuration();
+        echo '<br>';
+        $film2 = new Movies('Space Jam','avventura',1996,80);
+        echo $film2_title = $film2->getTitle();
+        echo '<br>';
+        echo $film2_genre = $film2->getGenre();
+        echo '<br>';
+        echo $film2_year = $film2->getYear();
+        echo '<br>';
+        $film2_duration = $film2->setDuration(150);
+        echo $film1_duration = $film1->getDuration();
     ?>
 </body>
 </html>
